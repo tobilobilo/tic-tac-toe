@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>TicTacToe++</title>
+    <meta name="description" content="TicTacToe++"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<section id="app">
+        <header class="container-fluid">
+    		<div class="row">
+				<div class="col-12 top-banner">
+					<h1>{{ compTextsWelcome[langSet] }}</h1>
+                    <div class="top-banner-options">
+                        <button class="btn btn-sm" v-on:click="openPlayersNameModal()">{{ texts.setPlayersName[langSet] }}</button>
+                        <div class="top-banner-option">
+                            <label>{{ texts.selectLang[langSet] }}</label>
+                            <select class="custom-select custom-select-sm" style="width:auto;" v-model="langSet">
+                                <option v-for="lang in langs" v-bind:value="lang.pos" v-bind:selected="lang.pos === 0">{{ lang.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-12 new-game">
+                    <h2>{{ texts.newGame[langSet] }}</h2>
+                    <div class="new-game-options">
+                        <div>
+                            <label>{{ texts.selectDifficulty[langSet] }}</label>
+                            <select class="custom-select custom-select-sm" style="width:auto;" id="selectid" v-model="difficultySet" v-on:change="setTtt()">
+                                <option disabled selected v-bind:value="null"> -- {{ texts.selectAnOption[langSet] }} -- </option>
+                                <option v-for="diff in difficulties" v-bind:value="diff.difficulty">{{ texts.difficulties[diff.difficulty][langSet] }}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>{{ texts.selectNbPlayers[langSet] }}</label>
+                            <select class="custom-select custom-select-sm" style="width:auto;" v-model.number="nbOfPlayers" v-on:change="setTtt()">
+                                <option v-for="index in playersSymbolsPool.length" v-if="index > 1">{{ index }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container-fluid">
+            <div class="row" v-if="difficultySet != null">
+                <div class="col-12">
+                    <div class="ttt" v-bind:data-difficulty="difficulties[difficultySet].difficultyLabel" v-bind:class="{'game-over': winnerPlayer}">
+                        <a v-for="index in squares" v-on:click="squareClicked(index, $event)" v-bind:data-square="index" class="square" v-bind:class="{clicked: grid[index-1]}">{{ grid[index-1] }}</a>
+                        <span class="dash" v-bind:class="{shown: winnerPlayer}" v-bind:style="dashStyle"><span class="in-dash">&nbsp;</span></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p class="players-turn">{{ setFeedbackText() }}</p>
+                    <div class="players-turn-symbol">{{ setFeedbackSymbol() }}</div>
+                    <div class="btns-wrapper" v-if="gameEnded">
+                        <input class="btn btn-restart" type="submit" v-bind:value="texts.restart[langSet]" v-on:click="setTtt()" />
+                    </div>
+                </div>
+			</div>
+        </main>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="scoreboard">
+                        <div class="scoreboard-title">{{ texts.scoreboardTitle[langSet] }}</div>
+                        <div class="scoreboard-players">
+                            <div class="scoreboard-subtitle">{{ texts.scoreboardVictory[langSet] }}</div>
+                            <div class="players-name-wrapper">
+                                <div class="players-name" v-for="(perso, index) in playersNames" v-if="index < nbOfPlayers">
+                                    {{perso}}
+                                    <div class="players-data">{{ gameWonBy[index] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scoreboard-games">
+                            <div class="scoreboard-subtitle">{{ texts.scoreboardPlayed[langSet] }}</div>
+                            <div class="scoreboard-data">{{ gamePlayed }}</div>
+                        </div>
+                    </div>
+                    <modal v-if="modalShown" v-on:closemodal="modalShown = $event" v-bind:playerlabel="texts.player[langSet]" v-bind:nextlabel="texts.next[langSet]" v-bind:donelabel="texts.done[langSet]" v-bind:modaltitle="texts.setPlayersNameModalTitle[langSet]" v-bind:nbofplayers="nbOfPlayers" v-bind:playersnamecustomized="playersNameCustomized" v-bind:playersnames="playersNames" v-on:playersnamecustomizedfromcomponent="playersNameCustomized = $event" v-on:playersnamefromcomponent="setPlayersName($event)"></modal>
+                </div>
+            </div>
+        </footer>
+	</section>
+
+    <script src="./app.js"></script>
+</body>
+</html>

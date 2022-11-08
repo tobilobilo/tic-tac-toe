@@ -1,0 +1,337 @@
+body {
+	
+}
+
+#app {
+	margin: 0 auto;
+}
+
+.btn {
+	background-color: #fff;
+	margin: 0 0;
+	font-size: 0.9rem;
+	border: 1px solid #858585;
+}
+header,
+footer {
+	background-color: #dddddd;
+	padding: 20px 0;
+	text-align: center;
+}
+
+header [class^="col"] + [class^="col"] {
+	margin-top: 4px;
+}
+header.container-fluid {
+	padding-top: 0;
+}
+.top-banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: .8rem 15px;
+	background-color: #f5f5f5;
+}
+.top-banner h1 {
+	margin-bottom: 0;
+	text-align: left;
+	font-size: 1.5rem;
+}
+.top-banner-options {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	margin-top: .45rem;
+}
+.top-banner-option {
+	margin-left: .8rem;
+}
+.top-banner-option label {
+	font-size: .8rem;
+}
+.new-game {
+
+}
+.new-game h2 {
+	font-size: 1rem;
+	text-align: left;
+	border-bottom: 1px solid #b4b4b4;
+	padding: 7px 0;
+}
+.new-game-options {
+	text-align: left;
+}
+.new-game-options label {
+	font-size: .9rem;
+}
+main {
+	padding-bottom: 20px;
+}
+.btn {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ttt {
+	position: relative;
+	border: 1px solid #dedede;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 50px auto 0;
+	box-sizing: content-box;
+}
+.ttt[data-difficulty="easy"] {
+	width: 150px;
+}
+.ttt[data-difficulty="normal"] {
+	width: 200px;
+}
+.ttt[data-difficulty="hard"] {
+	width: 250px;
+}
+.ttt[data-difficulty="inferno"] {
+	width: 500px;
+}
+.square {
+	border: 1px solid #dedede;
+	display: block;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font: 36px Verdana;
+	background-color: transparent;
+	transition: background-color 0.4s;
+}
+.game-over .square,
+.square.clicked {
+	cursor: default;
+}
+/*.square.clicked:hover {
+	background-color: #f4a4a4;
+}*/
+.game-over .square,
+.square.clicked,
+.square:not(.clicked):hover {
+	background-color: #f2f2f2;
+}
+.shown {
+	border-color: red;
+}
+
+.players-turn {
+	text-align: center;
+	margin-top: 30px;
+}
+.players-turn-symbol {
+	margin: 12px auto 0;
+	border: 1px solid #dedede;
+	background-color: #f4f4f4;
+	display: block;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font: 64px Verdana;
+}
+.btns-wrapper {
+	display: flex;
+	justify-content: center;
+	margin: 12px auto 0;
+	width: 160px;
+	background-color: #f4f4f4;
+	padding: 15px;
+}
+
+.dash {
+	width: 0%;
+	height: 3px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: width 0s;
+	transform-origin: 0% 50%;
+}
+.dash.shown {
+	width: 100%;
+	transition: width 0.8s
+}
+.in-dash {
+	background-color: red;
+	display: block;
+	position: absolute;
+	left: 8px;
+	right: 8px;
+	height: 100%;
+}
+
+/* Modal */
+.modal-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal-box {
+	position: relative;
+	width: 320px;
+	background-color: #fff;
+}
+.modal-bar {
+	position: relative;
+	width: 100%;
+	background-color: #cecece;
+}
+.modal-title {
+	font: 18px/18px Verdana;
+	padding: 6px 40px 6px 12px;
+}
+.modal-btn-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background-color: #aeaeae;
+}
+.modal-content {
+	padding: 10px;
+	border: none 0;
+	border-radius: 0;
+}
+.modal-content .btn {
+	background-color: #aeaeae;
+	position: relative;
+	top: -2px;
+}
+.modal-players-name input {
+	padding: .375rem .75rem;
+	margin-top: 2px;
+}
+
+.scoreboard {
+	border: solid 1px #aeaeae;
+}
+.scoreboard-title,
+.scoreboard-subtitle,
+.players-name-wrapper {
+	border-bottom: solid 1px #aeaeae;
+}
+
+.scoreboard-title,
+.scoreboard-subtitle,
+.players-name,
+.scoreboard-data {
+	padding: 10px;
+}
+.scoreboard {
+	display: inline-flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+}
+.scoreboard-title {
+	flex-basis: 100%;
+	font-size: 28px;
+	background-color: #f2f2f2;
+}
+.scoreboard-players,
+.scoreboard-games {
+	
+}
+.scoreboard-players {
+	flex-basis: 100%;
+}
+.scoreboard-subtitle {
+	width: 100%;
+	font-size: 20px;
+	background-color: #f2f2f2;
+}
+.players-name-wrapper {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.scoreboard-games {
+	display: flex;
+	flex-wrap: wrap;
+}
+.players-name,
+.scoreboard-games {
+	flex-grow: 1;
+	white-space: nowrap;
+}
+.scoreboard-data {
+	flex-grow: 1;
+	padding-top: 10px;
+	font-size: 22px;
+	font-weight: bold;
+}
+.players-data {
+	border-top: solid 1px #aeaeae;
+	margin-top: 5px;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+@media only screen and (min-width: 450px) {
+	.scoreboard-players .scoreboard-subtitle,
+	.scoreboard-players .players-name {
+		border-right: solid 1px #aeaeae;
+	}
+	.players-name-wrapper {
+		border-bottom: 0 none;
+	}
+	.scoreboard-players {
+		flex-basis: auto;
+	}
+}
+@media only screen and (min-width: 850px) {
+	header {
+		padding-bottom: 0;
+	}
+	.top-banner {
+		flex-direction: row;
+	}
+	.top-banner-options {
+		margin-top: 0;
+	}
+	.top-banner h1 {
+		font-size: 1.8rem;
+	}
+	.new-game {
+		display: flex;
+		flex-direction: row;
+		margin: 4px 0;
+	}
+	.new-game h2 {
+		font-size: 1.2rem;
+		padding: 0 0;
+		margin: 7px 0;
+		padding-right: 1rem;
+		margin-right: 1rem;
+		border-bottom: 0 none;
+		border-right: 1px solid #c5c5c5;
+	}
+	.new-game .new-game-options {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+		align-items: center;
+	}
+	.new-game label {
+		margin-bottom: 0;
+	}
+}
