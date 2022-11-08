@@ -1,4 +1,4 @@
-# tic-tac-toe
+# TicTacToe++
 
 Jeu de Tic Tac Toe avec une variantes supplémentaires.
 
