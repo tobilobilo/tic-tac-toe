@@ -8,10 +8,10 @@ Ce projet est un jeu de tic tac toe avec quelques aspects paramètrables comme l
 
 ## Pour Commencer - Getting Started
 
-### Dépendences - Dependencies
+<!---### Dépendences - Dependencies--->
 
-* Un navigateur web à jour
-* Un serveur web
+<!---* Un navigateur web à jour--->
+<!---* Un serveur web--->
 
 ### Installation - Installing
 
@@ -27,7 +27,7 @@ git clone https://github.com/tobilobilo/tic-tac-toe.git
 http-server
 ```
 
-## Aide - Help
+<!---## Aide - Help--->
  
 
 
@@ -40,9 +40,9 @@ Jean-Pierre Rose
 * 0.1
     * Initial Release
 
-## License
+<!---## License--->
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+<!---This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details--->
 
-## Remerciements - Acknowledgments
+<!---## Remerciements - Acknowledgments--->
  
