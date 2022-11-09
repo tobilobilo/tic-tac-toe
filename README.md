@@ -1,6 +1,6 @@
 # TicTacToe++
 
-Jeu de Tic Tac Toe avec une variantes supplémentaires.
+Jeu de Tic Tac Toe avec variantes supplémentaires.
 
 ## Description
 
