@@ -1,10 +1,10 @@
-# TicTacToe++
+# Tic Tac Toe
 
 Jeu de Tic Tac Toe avec variantes supplémentaires.
 
 ## Description
 
-Ce projet est un jeu de tic tac toe avec quelques aspects paramètrables comme le nombre de joueurs et leur noms, la grandeur de la grille de jeu et la langue de l'application. Le nombre de parties jouées et les victoires de chaque joueurs sont suivis. Ce projet a été mon baptème au framework vue.js. Pour simplifier les choses, j'ai utilisé la version CDN donc il n'y a pas de build à faire pour faire rouler le projet
+Ce projet est un jeu de Tic Tac Toe classique avec quelques aspects paramétrables comme le nombre de joueurs et leur nom, la grandeur de la grille de jeu et la langue de l'application. Le nombre de parties jouées et les victoires de chaque joueur sont suivis. Ce projet a été mon baptême au framework vue.js. Pour simplifier les choses, j'ai utilisé la version CDN donc il n'y a pas de build à faire pour faire rouler le projet.
 
 ## Pour Commencer - Getting Started
 
